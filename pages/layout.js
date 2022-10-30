@@ -1,3 +1,4 @@
+import Header from "../components/Global/Header";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -15,6 +16,7 @@ const theme = createTheme({
 export default function Layout({ children }) {
   return (
     <ThemeProvider theme={theme}>
+      <Header />
       <main>{children}</main>
     </ThemeProvider>
   );
