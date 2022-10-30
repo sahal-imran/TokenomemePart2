@@ -24,7 +24,7 @@ function Header() {
           justifyContent: "space-between",
           alignItems: "center",
           background: "white",
-          px: { md: 3, xs: 2 },
+          px: { md: 2, xs: 2 },
         }}
       >
         {/* Logo for phone */}
