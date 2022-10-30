@@ -17,6 +17,8 @@ import Checkbox from "@mui/material/Checkbox";
 
 // Components
 import SearchBar from "../components/Home/SearchBar";
+import SuggestionBanner from "../components/Home/SuggestionBanner";
+import NotiCard from "../components/Home/NotiCard";
 
 function Home() {
   const Search_Ref = useRef();
@@ -91,7 +93,6 @@ function Home() {
     },
   ];
 
-
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -116,6 +117,7 @@ function Home() {
               width: "100%",
               height: "100vh",
               position: "relative",
+              pt: 2,
             }}
           >
             {/* Search bar */}
@@ -123,7 +125,11 @@ function Home() {
 
             {/* Filter */}
             <Box sx={{ width: "100%", mt: 2 }}>
-              <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} sx={{ boxShadow: "none" }}>
+              <Accordion
+                expanded={expanded === "panel1"}
+                onChange={handleChange("panel1")}
+                sx={{ boxShadow: "none" }}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
                   sx={{ borderBottom: "1.12102px solid rgba(15, 15, 14, 0.1)" }}
@@ -213,7 +219,11 @@ function Home() {
 
             {/* Communities */}
             <Box sx={{ width: "100%", mt: 3 }}>
-              <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} sx={{ boxShadow: "none" }}>
+              <Accordion
+                expanded={expanded === "panel2"}
+                onChange={handleChange("panel2")}
+                sx={{ boxShadow: "none" }}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
                   sx={{ borderBottom: "1.12102px solid rgba(15, 15, 14, 0.1)" }}
@@ -303,7 +313,11 @@ function Home() {
 
             {/* Collections */}
             <Box sx={{ width: "100%", mt: 3 }}>
-              <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')} sx={{ boxShadow: "none" }}>
+              <Accordion
+                expanded={expanded === "panel3"}
+                onChange={handleChange("panel3")}
+                sx={{ boxShadow: "none" }}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
                 >
@@ -467,10 +481,58 @@ function Home() {
           </Grid>
 
           {/* Main Content */}
-          <Grid sx={{ background: "#f3f3f3" }} item md={7.5} xs={12}></Grid>
+          <Grid
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              flexDirection: "column",
+              p: 5,
+              background: "white",
+              width: "100%",
+              position: "relative",
+              background: "#f3f3f3",
+            }}
+            item
+            md={7}
+            xs={12}
+          >
+            {/* Trending Categories */}
+            <Box
+              sx={{
+                width: "100%",
+                height: "320px",
+                borderRadius: "4px",
+                background: "white",
+                boxShadow: "0px 25px 30px rgba(0, 0, 0, 0.05)",
+              }}
+            ></Box>
+          </Grid>
 
           {/* Suggestions */}
-          <Grid item md={2}></Grid>
+          <Grid
+            item
+            md={2.5}
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              flexDirection: "column",
+              px: 2,
+              background: "white",
+              width: "100%",
+              height: "100vh",
+              position: "relative",
+              pt: 2,
+            }}
+          >
+            {/* Info Banner */}
+            <SuggestionBanner />
+
+            {/* Notification card */}
+            <NotiCard Title={"Home"} IsImage={true} mt={3} />
+            <NotiCard Title={"Suggestion"} IsImage={false} mt={3} />
+          </Grid>
         </Grid>
       </Box>
     </>
