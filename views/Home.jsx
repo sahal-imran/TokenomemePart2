@@ -7,18 +7,23 @@ import { Button } from "@mui/material";
 import Anchorlink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import { Divide as Hamburger } from "hamburger-react";
 import Checkbox from "@mui/material/Checkbox";
+import { Swiper, SwiperSlide } from "swiper/react";
+import IconButton from "@mui/material/IconButton";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import StarIcon from "@mui/icons-material/Star";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import Drawer from "react-modern-drawer";
+//import styles 👇
+import "react-modern-drawer/dist/index.css";
 
 // Components
-import SearchBar from "../components/Home/SearchBar";
-import SuggestionBanner from "../components/Home/SuggestionBanner";
-import NotiCard from "../components/Home/NotiCard";
+import SideFilterBar from "../components/Home/SideFilterBar";
+import SideNotiBar from "../components/Home/SideNotiBar";
+import PostCard from "../components/Home/PostCard";
 
 function Home() {
   const Search_Ref = useRef();
@@ -93,11 +98,8 @@ function Home() {
     },
   ];
 
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+  const [isFiltersOpen, setFilters] = useState(false);
+  const [isNofificationsOpen, setNofifications] = useState(false);
 
   return (
     <>
@@ -108,7 +110,7 @@ function Home() {
             item
             md={2.5}
             sx={{
-              display: "flex",
+              display: { md: "flex", xs: "none" },
               justifyContent: "start",
               alignItems: "center",
               flexDirection: "column",
@@ -116,368 +118,14 @@ function Home() {
               background: "white",
               width: "100%",
               height: "100vh",
-              position: "relative",
               pt: 2,
             }}
           >
-            {/* Search bar */}
-            <SearchBar ref={Search_Ref} />
-
-            {/* Filter */}
-            <Box sx={{ width: "100%", mt: 2 }}>
-              <Accordion
-                expanded={expanded === "panel1"}
-                onChange={handleChange("panel1")}
-                sx={{ boxShadow: "none" }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
-                  sx={{ borderBottom: "1.12102px solid rgba(15, 15, 14, 0.1)" }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: "35.87px",
-                        height: "35.87px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        background:
-                          "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
-                        borderRadius: "4.48408px",
-                      }}
-                    >
-                      <Image
-                        src={"/assets/pictures/filter.svg"}
-                        alt={"Logo"}
-                        width={14.95}
-                        height={9.34}
-                        objectFit="contain"
-                      />
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: "Montserrat",
-                        fontWeight: "500",
-                        fontSize: "18px",
-                        lineHeight: "21.94px",
-                        color: "#FB8E00",
-                        textTransform: "unset",
-                        ml: 1,
-                      }}
-                    >
-                      Filter
-                    </Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "start",
-                      flexDirection: "column",
-                    }}
-                  >
-                    {Filters?.map((item, index) => {
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          control={
-                            <Checkbox
-                              checked={item.Current_State}
-                              onChange={(e) => item.Change_f(e.target.checked)}
-                              sx={{
-                                "&.Mui-checked": {
-                                  color: "#FB8E00",
-                                },
-                              }}
-                            />
-                          }
-                          label={item.Name}
-                          sx={{
-                            color: "rgba(15, 15, 14, 0.5)",
-                            fontFamily: "Lato",
-                            fontWeight: "400",
-                            fontSize: "18px",
-                            lineHeight: "22px",
-                          }}
-                        />
-                      );
-                    })}
-                  </Box>
-                </AccordionDetails>
-              </Accordion>
-            </Box>
-
-            {/* Communities */}
-            <Box sx={{ width: "100%", mt: 3 }}>
-              <Accordion
-                expanded={expanded === "panel2"}
-                onChange={handleChange("panel2")}
-                sx={{ boxShadow: "none" }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
-                  sx={{ borderBottom: "1.12102px solid rgba(15, 15, 14, 0.1)" }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: "35.87px",
-                        height: "35.87px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        background:
-                          "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
-                        borderRadius: "4.48408px",
-                      }}
-                    >
-                      <Image
-                        src={"/assets/pictures/Communities.svg"}
-                        alt={"Logo"}
-                        width={22.42}
-                        height={22.42}
-                        objectFit="contain"
-                      />
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: "Montserrat",
-                        fontWeight: "500",
-                        fontSize: "18px",
-                        lineHeight: "21.94px",
-                        color: "#FB8E00",
-                        textTransform: "unset",
-                        ml: 1,
-                      }}
-                    >
-                      Communities
-                    </Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "start",
-                      flexDirection: "column",
-                    }}
-                  >
-                    {Communities?.map((item, index) => {
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          control={
-                            <Checkbox
-                              checked={item.Current_State}
-                              onChange={(e) => item.Change_f(e.target.checked)}
-                              sx={{
-                                "&.Mui-checked": {
-                                  color: "#FB8E00",
-                                },
-                              }}
-                            />
-                          }
-                          label={item.Name}
-                          sx={{
-                            color: "rgba(15, 15, 14, 0.5)",
-                            fontFamily: "Lato",
-                            fontWeight: "400",
-                            fontSize: "18px",
-                            lineHeight: "22px",
-                          }}
-                        />
-                      );
-                    })}
-                  </Box>
-                </AccordionDetails>
-              </Accordion>
-            </Box>
-
-            {/* Collections */}
-            <Box sx={{ width: "100%", mt: 3 }}>
-              <Accordion
-                expanded={expanded === "panel3"}
-                onChange={handleChange("panel3")}
-                sx={{ boxShadow: "none" }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#FB8E00" }} />}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: "35.87px",
-                        height: "35.87px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Image
-                        src={"/assets/pictures/collection.svg"}
-                        alt={"Logo"}
-                        width={22.42}
-                        height={22.42}
-                        objectFit="contain"
-                      />
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: "Montserrat",
-                        fontWeight: "500",
-                        fontSize: "18px",
-                        lineHeight: "21.94px",
-                        color: "#FB8E00",
-                        textTransform: "unset",
-                        ml: 1,
-                      }}
-                    >
-                      Collections
-                    </Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "start",
-                      flexDirection: "column",
-                    }}
-                  >
-                    {Communities?.map((item, index) => {
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          control={
-                            <Checkbox
-                              checked={item.Current_State}
-                              onChange={(e) => item.Change_f(e.target.checked)}
-                              sx={{
-                                "&.Mui-checked": {
-                                  color: "#FB8E00",
-                                },
-                              }}
-                            />
-                          }
-                          label={item.Name}
-                          sx={{
-                            color: "rgba(15, 15, 14, 0.5)",
-                            fontFamily: "Lato",
-                            fontWeight: "400",
-                            fontSize: "18px",
-                            lineHeight: "22px",
-                          }}
-                        />
-                      );
-                    })}
-                  </Box>
-                </AccordionDetails>
-              </Accordion>
-            </Box>
-
-            <Button
-              variant="contained"
-              sx={{
-                width: "264.16px",
-                height: "44px",
-                background:
-                  "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
-                borderRadius: "60px",
-                boxShadow: "none",
-                fontFamily: "Montserrat",
-                fontWeight: "600",
-                fontSize: "16px",
-                lineHeight: "154%",
-                color: "#FFFFFF",
-                p: 0,
-                textTransform: "uppercase",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                "&:hover": {},
-                mt: 3,
-              }}
-            >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: "22px",
-                  height: "23px",
-                  cursor: "pointer",
-                  mr: 1,
-                }}
-              >
-                <Image
-                  src={"/assets/pictures/rhombus.svg"}
-                  alt={"Logo"}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-              ADD FEEDS
-            </Button>
-
-            {/* Help */}
-            <Button
-              variant="text"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                cursor: "pointer",
-                fontFamily: "Montserrat",
-                fontWeight: "600",
-                fontSize: "16px",
-                lineHeight: "154%",
-                color: "#823AFF",
-                textTransform: "capitalize",
-                alignSelf: "start",
-                position: "absolute",
-                bottom: "10px",
-              }}
-            >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: "17.94px",
-                  height: "17.94px",
-                  mr: 1,
-                }}
-              >
-                <Image
-                  src={"/assets/pictures/help.svg"}
-                  alt={"Logo"}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-              Help
-            </Button>
+            <SideFilterBar
+              Filters={Filters}
+              Communities={Communities}
+              ref={Search_Ref}
+            />
           </Grid>
 
           {/* Main Content */}
@@ -487,7 +135,7 @@ function Home() {
               justifyContent: "start",
               alignItems: "center",
               flexDirection: "column",
-              p: 5,
+              p: { md: 5, xs: 2 },
               background: "white",
               width: "100%",
               position: "relative",
@@ -497,6 +145,60 @@ function Home() {
             md={7}
             xs={12}
           >
+            <Box
+              sx={{
+                display: { md: "none", xs: "flex" },
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Button
+                onClick={() => setFilters(true)}
+                variant="contained"
+                sx={{
+                  width: "140px",
+                  height: "38px",
+                  background:
+                    "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
+                  borderRadius: "60px",
+                  boxShadow: "none",
+                  fontFamily: "Montserrat",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  lineHeight: "154%",
+                  color: "#FFFFFF",
+                  p: 0,
+                  textTransform: "unset",
+                  "&:hover": {},
+                }}
+              >
+                Filters
+              </Button>
+              <Button
+                onClick={() => setNofifications(true)}
+                variant="contained"
+                sx={{
+                  width: "140px",
+                  height: "38px",
+                  background:
+                    "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
+                  borderRadius: "60px",
+                  boxShadow: "none",
+                  fontFamily: "Montserrat",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  lineHeight: "154%",
+                  color: "#FFFFFF",
+                  p: 0,
+                  textTransform: "unset",
+                  "&:hover": {},
+                  ml: 2,
+                }}
+              >
+                Notifications
+              </Button>
+            </Box>
             {/* Trending Categories */}
             <Box
               sx={{
@@ -505,8 +207,111 @@ function Home() {
                 borderRadius: "4px",
                 background: "white",
                 boxShadow: "0px 25px 30px rgba(0, 0, 0, 0.05)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "start",
+                flexDirection: "column",
+                p: 2,
+                mt: { md: 0, xs: 2 },
               }}
-            ></Box>
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Montserrat",
+                  fontWeight: 600,
+                  fontSize: "20px",
+                  lineHeight: "24.38px",
+                  color: "#823AFF",
+                  textTransform: "unset",
+                  textDecoration: "none",
+                }}
+              >
+                Trending Categories
+              </Typography>
+              <Box sx={{ width: "100%", mt: 3 }}>
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={12}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 3,
+                      spaceBetween: 12,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                      spaceBetween: 12,
+                    },
+                    1024: {
+                      slidesPerView: 5,
+                      spaceBetween: 12,
+                    },
+                  }}
+                >
+                  {Categories?.map((item, index) => {
+                    return (
+                      <SwiperSlide key={index}>
+                        <Box
+                          sx={{
+                            position: "relative",
+                            width: "100%",
+                            height: "216px",
+                            borderRadius: "8px",
+                            overflow: "hidden",
+                            "&:hover": {
+                              filter:
+                                "drop-shadow(0px 2px 17px rgba(251, 167, 20, 0.42))",
+                            },
+                          }}
+                        >
+                          <Image
+                            src={item.imgURL}
+                            alt={item.Name}
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                          <Link href={item.URL}>
+                            <Anchorlink
+                              sx={{
+                                position: "absolute",
+                                width: "100%",
+                                height: "45px",
+                                borderRadius: "0px",
+                                bottom: 0,
+                                left: 0,
+                                fontFamily: "Montserrat",
+                                fontWeight: 600,
+                                fontSize: "16px",
+                                lineHeight: "19.5px",
+                                color: "white",
+                                textTransform: "unset",
+                                background: "unset",
+                                textDecoration: "none",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                cursor: "pointer",
+                                "&:hover": {
+                                  background:
+                                    "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
+                                },
+                              }}
+                            >
+                              {item.Name}
+                            </Anchorlink>
+                          </Link>
+                        </Box>
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </Box>
+            </Box>
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
           </Grid>
 
           {/* Suggestions */}
@@ -514,7 +319,7 @@ function Home() {
             item
             md={2.5}
             sx={{
-              display: "flex",
+              display: { md: "flex", xs: "none" },
               justifyContent: "start",
               alignItems: "center",
               flexDirection: "column",
@@ -526,25 +331,128 @@ function Home() {
               pt: 2,
             }}
           >
-            {/* Info Banner */}
-            <SuggestionBanner />
-
-            {/* Notification card */}
-            <NotiCard Title={"Home"} IsImage={true} mt={3} />
-            <NotiCard Title={"Suggestion"} IsImage={false} mt={3} />
+            <SideNotiBar />
           </Grid>
         </Grid>
       </Box>
+
+      {/* ++++++++++++++++++ */}
+      {/* Drawers for mobile */}
+      {/* ++++++++++++++++++ */}
+
+      {/* Filetrs */}
+      <Drawer
+        open={isFiltersOpen}
+        onClose={() => setFilters(false)}
+        direction="left"
+        className="Drawer"
+        style={{
+          width: "100%",
+          background: "white",
+          padding: "12px 10px",
+          display: "flex",
+          justifyContent: "start",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          sx={{
+            alignSelf: "end",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mb: 3,
+          }}
+        >
+          <Hamburger
+            rounded
+            size={28}
+            toggled={isFiltersOpen}
+            toggle={setFilters}
+          />
+        </Box>
+        <SideFilterBar
+          Filters={Filters}
+          Communities={Communities}
+          ref={Search_Ref}
+        />
+      </Drawer>
+
+      {/* Filetrs */}
+      <Drawer
+        open={isNofificationsOpen}
+        onClose={() => setNofifications(false)}
+        direction="right"
+        className="Drawer"
+        style={{
+          width: "100%",
+          background: "white",
+          padding: "12px 10px",
+          display: "flex",
+          justifyContent: "start",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          sx={{
+            alignSelf: "end",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mb: 3,
+          }}
+        >
+          <Hamburger
+            rounded
+            size={28}
+            toggled={isNofificationsOpen}
+            toggle={setNofifications}
+          />
+        </Box>
+        <SideNotiBar />
+      </Drawer>
     </>
   );
 }
 
 export default Home;
 
-const Filters = [
+const Categories = [
   {
-    Name: "",
-    Current_State: "",
-    Change_f: "",
+    Name: "Dog",
+    imgURL: "/assets/pictures/dog.svg",
+    URL: "",
+  },
+  {
+    Name: "Series",
+    imgURL: "/assets/pictures/series.svg",
+    URL: "",
+  },
+  {
+    Name: "Funny",
+    imgURL: "/assets/pictures/funny.svg",
+    URL: "",
+  },
+  {
+    Name: "Movies",
+    imgURL: "/assets/pictures/movies.svg",
+    URL: "",
+  },
+  {
+    Name: "WTF",
+    imgURL: "/assets/pictures/wtf.svg",
+    URL: "",
+  },
+  {
+    Name: "Dog",
+    imgURL: "/assets/pictures/dog.svg",
+    URL: "",
+  },
+  {
+    Name: "Series",
+    imgURL: "/assets/pictures/series.svg",
+    URL: "",
   },
 ];
