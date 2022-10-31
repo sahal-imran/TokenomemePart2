@@ -114,11 +114,8 @@ function Home() {
               justifyContent: "start",
               alignItems: "center",
               flexDirection: "column",
-              px: 2,
-              background: "white",
+              background: "#f3f3f3",
               width: "100%",
-              height: "100vh",
-              pt: 2,
             }}
           >
             <SideFilterBar
@@ -323,12 +320,10 @@ function Home() {
               justifyContent: "start",
               alignItems: "center",
               flexDirection: "column",
-              px: 2,
-              background: "white",
+              background: "#f3f3f3",
               width: "100%",
-              height: "100vh",
               position: "relative",
-              pt: 2,
+              
             }}
           >
             <SideNotiBar />

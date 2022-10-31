@@ -31,8 +31,12 @@ function SideNotiBar() {
         flexDirection: "column",
         background: "white",
         width: "100%",
-        height: "100%",
+        height: "100vh",
+        maxHeight: "100vh",
         position: "relative",
+        pt: 2,
+        background: "white",
+        px:2
       }}
     >
       {/* Info Banner */}

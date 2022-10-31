@@ -42,8 +42,11 @@ function SideFilterBar(props, ref) {
         justifyContent: "start",
         alignItems: "center",
         flexDirection: "column",
-        height: "100%",
+        height: "100vh",
+        maxHeight: "100vh",
         position: "relative",
+        background: "white",
+        pt: 2,
       }}
     >
       {/* Search bar */}
@@ -385,6 +388,7 @@ function SideFilterBar(props, ref) {
           alignSelf: "start",
           position: "absolute",
           bottom: "10px",
+          left:"15px"
         }}
       >
         <Box
