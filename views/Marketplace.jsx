@@ -25,6 +25,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 
 // components
 import InfoCard from "../components/MarketPlace/InfoCard";
+import NFT_Card from "../components/MarketPlace/NFT_Card";
 
 function Marketplace() {
   const AppliedFilters = [
@@ -146,9 +147,10 @@ function Marketplace() {
             position: "relative",
             zIndex: 10,
             px: { md: 0, xs: 2 },
+            pb: 4,
           }}
         >
-          <Grid container spacing={1}>
+          <Grid container spacing={{ md: 2 }}>
             {/* Left bar */}
             <Grid
               item
@@ -867,6 +869,81 @@ function Marketplace() {
                   </Button>
                 </Box>
               </Box>
+
+              {/*NFT's Card section */}
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  mt: 4,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontFamily: "Montserrat",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      lineHeight: "19.5px",
+                      color: "#823AFF",
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "start",
+                    }}
+                  >
+                    <Image
+                      src={"/assets/pictures/restore.svg"}
+                      alt={"Logo"}
+                      width={16.02}
+                      height={16.02}
+                      objectFit="contain"
+                    />
+                    <Box component={"span"} sx={{ ml: 1 }}>
+                      Updated 54s ago
+                    </Box>
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Montserrat",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      lineHeight: "19.5px",
+                      color: "#823AFF",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    9,630 items
+                  </Typography>
+                </Box>
+
+                {/* Cards */}
+                <Box sx={{ flexGrow: 1, width: "100%", mt: 3 }}>
+                  <Grid
+                    container
+                    columnSpacing={{ md: 2 }}
+                    rowSpacing={{ md: 2, xs: 5 }}
+                  >
+                    {NFTs?.map((item, index) => {
+                      return (
+                        <Grid key={index} item xs={12} sm={6} md={3}>
+                          <NFT_Card Data={item} />
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </Box>
+              </Box>
             </Grid>
           </Grid>
         </Box>
@@ -912,3 +989,126 @@ function Marketplace() {
 }
 
 export default Marketplace;
+
+const NFTs = [
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/catnft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/catnft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/catnft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+  {
+    imgURL: "/assets/pictures/dognft.svg",
+    Name: "Lacus Vestibulum",
+    Types: {
+      type1: "#NFT",
+      type2: "#NFT",
+      type3: "#NFT",
+    },
+    price: "0.068ETH",
+  },
+];

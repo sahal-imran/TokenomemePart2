@@ -12,4 +12,8 @@ a {
   text-decoration: none;
 }
 
-
+.GradText {
+  background: -webkit-linear-gradient(236.69deg, #fb8e00 6.11%, #823aff 97.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
