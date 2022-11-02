@@ -103,7 +103,7 @@ function Home() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, position: "relative" }}>
         <Grid container spacing={0}>
           {/* Filter/Left */}
           <Grid
@@ -116,6 +116,7 @@ function Home() {
               flexDirection: "column",
               background: "#f3f3f3",
               width: "100%",
+              position: "relative",
             }}
           >
             <SideFilterBar
@@ -323,12 +324,43 @@ function Home() {
               background: "#f3f3f3",
               width: "100%",
               position: "relative",
-              
             }}
           >
             <SideNotiBar />
           </Grid>
         </Grid>
+        <Box
+          sx={{
+            width: "833.02px",
+            height: "569.28px",
+            position: "absolute",
+            left: "-200px",
+            top: "15%",
+          }}
+        >
+          <Image
+            src={"/assets/pictures/1.svg"}
+            alt={"Logo"}
+            layout="fill"
+            objectFit="cotain"
+          />
+        </Box>
+        <Box
+          sx={{
+            width: "893.72px",
+            height: "894.85px",
+            position: "absolute",
+            right: 0,
+            top: "50%",
+          }}
+        >
+          <Image
+            src={"/assets/pictures/2.svg"}
+            alt={"Logo"}
+            layout="fill"
+            objectFit="cotain"
+          />
+        </Box>
       </Box>
 
       {/* ++++++++++++++++++ */}

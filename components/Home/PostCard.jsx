@@ -23,6 +23,8 @@ function PostCard() {
         boxShadow: "0px 25px 30px rgba(0, 0, 0, 0.05)",
         borderRadius: "8px",
         mt: 4,
+        position:"relative",
+        zIndex:10
       }}
     >
       {/* Title and more button bar */}

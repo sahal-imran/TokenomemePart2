@@ -34,9 +34,10 @@ function SideNotiBar() {
         height: "100vh",
         maxHeight: "100vh",
         position: "relative",
+        zIndex: 10,
         pt: 2,
         background: "white",
-        px:2
+        px: 2,
       }}
     >
       {/* Info Banner */}

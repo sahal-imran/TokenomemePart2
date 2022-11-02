@@ -44,7 +44,8 @@ function SideFilterBar(props, ref) {
         flexDirection: "column",
         height: "100vh",
         maxHeight: "100vh",
-        position: "relative",
+        position:"relative",
+        zIndex:10,
         background: "white",
         pt: 2,
       }}

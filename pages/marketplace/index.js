@@ -1,9 +1,7 @@
-import React from 'react'
+import Marketplace from "../../views/Marketplace";
 
 function index() {
-  return (
-    <div>index</div>
-  )
+  return <Marketplace />;
 }
 
-export default index
+export default index;

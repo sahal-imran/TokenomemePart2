@@ -136,17 +136,26 @@ function Header() {
             </Anchorlink>
           </Link>
           {/* Logo */}
-          <Box
-            sx={{ position: "relative", width: "66px", height: "70px", mx: 2 }}
-          >
-            <Image
-              src={"/assets/pictures/logo.svg"}
-              alt={"Logo"}
-              layout="fill"
-              objectFit="contain"
-            />
-          </Box>
-          <Link href={""}>
+          <Link href={"/"}>
+            <Anchorlink
+              sx={{
+                position: "relative",
+                width: "66px",
+                height: "70px",
+                mx: 2,
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                src={"/assets/pictures/logo.svg"}
+                alt={"Logo"}
+                layout="fill"
+                objectFit="contain"
+              />
+            </Anchorlink>
+          </Link>
+          <Link href={"/marketplace"}>
             <Anchorlink
               sx={{
                 ml: 1,
