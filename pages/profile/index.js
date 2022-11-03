@@ -1,9 +1,7 @@
-import React from 'react'
+import Profile from "../../views/Profile";
 
 function index() {
-  return (
-    <div>index</div>
-  )
+  return <Profile />;
 }
 
-export default index
+export default index;

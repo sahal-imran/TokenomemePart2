@@ -17,3 +17,18 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.GradText2 {
+  background: -webkit-linear-gradient(
+      116.12deg,
+      #f46531 8.93%,
+      #f46e31 18.56%,
+      #f48631 34.22%,
+      #f4ad31 53.86%,
+      #f4b331 56.44%,
+      #f4b331 103.58%,
+      #f4e795 137.56%
+    ),
+    #d9d9d9;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

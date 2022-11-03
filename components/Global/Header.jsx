@@ -205,7 +205,6 @@ function Header() {
               position: "relative",
               width: "24px",
               height: "24px",
-              cursor: "pointer",
               mr: 2,
             }}
           >
@@ -223,36 +222,38 @@ function Header() {
             src="/assets/pictures/Sahal.png"
             sx={{ width: 32, height: 32, mr: 1.5 }}
           />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-          >
-            <Typography
+          <Link href={"/profile"}>
+            <Box
               sx={{
-                fontFamily: "Lato",
-                fontWeight: "400",
-                fontSize: "16px",
-                lineHeight: "19.2px",
-                color: "#413C58",
-                textTransform: "unset",
-                textDecoration: "none",
-                mr: 1,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
               }}
             >
-              Sahal Imran
-            </Typography>
-            <Image
-              src={"/assets/pictures/ArrowDown.svg"}
-              alt={"Logo"}
-              width={10}
-              height={6}
-              objectFit="cover"
-            />
-          </Box>
+              <Typography
+                sx={{
+                  fontFamily: "Lato",
+                  fontWeight: "400",
+                  fontSize: "16px",
+                  lineHeight: "19.2px",
+                  color: "#413C58",
+                  textTransform: "unset",
+                  textDecoration: "none",
+                  mr: 1,
+                }}
+              >
+                Sahal Imran
+              </Typography>
+              <Image
+                src={"/assets/pictures/ArrowDown.svg"}
+                alt={"Logo"}
+                width={10}
+                height={6}
+                objectFit="cover"
+              />
+            </Box>
+          </Link>
         </Box>
 
         {/* Hamburgar */}
