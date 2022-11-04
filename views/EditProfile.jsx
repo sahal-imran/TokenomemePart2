@@ -21,7 +21,7 @@ const customStyles = {
     fontSize: "14.5855px",
     lineHeight: "154%",
     color: "rgba(0, 0, 0, 0.5)",
-    padding:"0px 0px 0px 6px",
+    padding: "0px 0px 0px 6px",
     borderRadius: "7.29275px",
   }),
 };
@@ -78,7 +78,7 @@ function EditProfile() {
         >
           <Box
             sx={{
-              width: { md: "871px", xs: "100%" },
+              width: { md: "871px", xs: "95%" },
               borderRadius: "7px",
               background:
                 "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
@@ -93,9 +93,10 @@ function EditProfile() {
                 background: "white",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "start",
+                alignItems: {md:"start",xs:"center"},
                 flexDirection: "column",
-                p: 3,
+                px: {md:3,xs:1},
+                py:3
               }}
             >
               <Typography
@@ -116,7 +117,7 @@ function EditProfile() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  mt: 3,
+                  mt: 4,
                 }}
               >
                 {/* Username */}
@@ -234,8 +235,97 @@ function EditProfile() {
                     // overflow: "hidden",
                   }}
                 >
-                  <Select placeholder="Language" styles={customStyles} options={options} />
+                  <Select
+                    placeholder="Language"
+                    styles={customStyles}
+                    options={options}
+                  />
                 </Box>
+              </Box>
+              <Box
+                sx={{
+                  width: "100%",
+                  background: "#FFFFFF",
+                  borderRadius: "7.29275px",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  border: "1px solid #D1D5DB",
+                  mt: 2,
+                }}
+              >
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="10"
+                  style={{
+                    outline: "none",
+                    border: "none",
+                    background: "none",
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "160px",
+                    maxWidth: "100%",
+                    minWidth: "100%",
+                    padding: "15px",
+                    fontFamily: "Lato",
+                    fontWeight: 400,
+                    fontSize: "14.5855px",
+                    lineHeight: "154%",
+                    color: "rgba(0, 0, 0, 0.5)",
+                  }}
+                  placeholder="Short Description"
+                />
+              </Box>
+
+              {/* Button */}
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: {md:"end",xs:"end"},
+                  alignItems: "center",
+                  mt: 8,
+                }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 700,
+                    fontSize: "19.94px",
+                    lineHeight: "30.71px",
+                    color: "white",
+                    width: "106.98px",
+                    height: "49px",
+                    boxShadow: "none",
+                    background:
+                      "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
+                    borderRadius: "11.3968px",
+                    textTransform:"capitalize"
+                  }}
+                >
+                  Save
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    fontFamily: "Montserrat",
+                    fontWeight: 700,
+                    fontSize: "19.94px",
+                    lineHeight: "30.71px",
+                    color: "rgba(0, 0, 0, 0.5)",
+                    width: "106.98px",
+                    height: "49px",
+                    boxShadow: "none",
+                    borderRadius: "11.3968px",
+                    ml:2,
+                    textTransform:"capitalize",
+                    border:"1.4246px solid rgba(0, 0, 0, 0.1)",
+                    "&:hover":{border:"1.4246px solid rgba(0, 0, 0, 0.1)"}
+                  }}
+                >
+                  Cancel
+                </Button>
               </Box>
             </Box>
           </Box>
