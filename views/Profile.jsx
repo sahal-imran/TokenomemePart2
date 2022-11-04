@@ -12,12 +12,28 @@ import IconButton from "@mui/material/IconButton";
 
 // components
 import ProfileCard from "../components/Common/ProfileCard";
+import OverviewUserCard from "../components/Profile/OverviewUserCard";
+import AchievementCard from "../components/Profile/AchievementCard";
 
 function Profile() {
   const [SwtichPanel, setSwtichPanel] = React.useState(0);
 
   const handleSwtichPanelChange = (event, newSwtichPanel) => {
     setSwtichPanel(newSwtichPanel);
+    if (newSwtichPanel === 0) {
+      Set_Overview(false);
+      Set_Achievement(false);
+      Set_My_collectibles(true);
+      Set_Saved(false);
+      Set_Feeds(false);
+    }
+    if (newSwtichPanel === 1) {
+      Set_Overview(true);
+      Set_Achievement(false);
+      Set_My_collectibles(false);
+      Set_Saved(false);
+      Set_Feeds(false);
+    }
   };
 
   // Post Button
@@ -55,6 +71,32 @@ function Profile() {
       Name: "Feeds",
       State: Feeds,
       f: Feeds_Click,
+    },
+  ];
+
+  // Post Button
+  const [Overview, Set_Overview] = useState(true);
+  const [Achievement, Set_Achievement] = useState(false);
+
+  const Overview_Click = () => {
+    Set_Overview(true);
+    Set_Achievement(false);
+  };
+  const Achievement_Click = () => {
+    Set_Overview(false);
+    Set_Achievement(true);
+  };
+
+  const RewardtBtns = [
+    {
+      Name: "Overview",
+      State: Overview,
+      f: Overview_Click,
+    },
+    {
+      Name: "Achievement",
+      State: Achievement,
+      f: Achievement_Click,
     },
   ];
 
@@ -152,6 +194,8 @@ function Profile() {
             </Tabs>
 
             {/* Switchable tabs */}
+
+            {/* Post */}
             {SwtichPanel === 0 && (
               <Box
                 sx={{
@@ -645,6 +689,187 @@ function Profile() {
                 )}
               </Box>
             )}
+
+            {/* Rewards */}
+            {SwtichPanel === 1 && (
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "start",
+                  flexDirection: "column",
+                  mt: 4,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    maxWidth: "100%",
+                    overflow: "auto",
+                    pl: { sm: 0, xs: 4 },
+                  }}
+                >
+                  {/* Button */}
+                  {RewardtBtns?.map((item, index) => {
+                    return (
+                      <Box
+                        key={index}
+                        sx={
+                          item.State
+                            ? {
+                                minWidth: "156px",
+                                height: "50px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "5px",
+                                mr: 2,
+                                position: "relative",
+                                zIndex: 10,
+                              }
+                            : {
+                                minWidth: "156px",
+                                height: "50px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                p: 0.2,
+                                borderRadius: "5px",
+                                background:
+                                  "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
+                                mr: 2,
+                                position: "relative",
+                                zIndex: 10,
+                              }
+                        }
+                      >
+                        <Button
+                          onClick={item.f}
+                          variant="contained"
+                          sx={
+                            item.State
+                              ? {
+                                  width: "100%",
+                                  height: "100%",
+                                  borderRadius: "5px",
+                                  boxShadow: "none",
+                                  background:
+                                    "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
+                                  fontFamily: "Montserrat",
+                                  fontWeight: 600,
+                                  fontSize: "16px",
+                                  lineHeight: "19.5px",
+                                  color: "white",
+                                  textTransform: "unset",
+                                  p: 0,
+                                  "&:hover": {},
+                                }
+                              : {
+                                  width: "100%",
+                                  height: "100%",
+                                  borderRadius: "5px",
+                                  boxShadow: "none",
+                                  background: "white",
+                                  fontFamily: "Montserrat",
+                                  fontWeight: 600,
+                                  fontSize: "16px",
+                                  lineHeight: "19.5px",
+                                  color: "rgba(0,0,0,0.7)",
+                                  textTransform: "unset",
+                                  p: 0,
+                                  "&:hover": {
+                                    boxShadow: "none",
+                                    background: "white",
+                                  },
+                                }
+                          }
+                        >
+                          {item.Name}
+                        </Button>
+                      </Box>
+                    );
+                  })}
+                </Box>
+
+                {Overview && (
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                      width: { md: "70%", xs: "100%" },
+                      mx: "auto",
+                      mt: 10,
+                    }}
+                  >
+                    <Grid
+                      container
+                      columnSpacing={{ md: 6 }}
+                      rowSpacing={{ md: 2, xs: 6 }}
+                    >
+                      <Grid item xs={12} md={6}>
+                        <OverviewUserCard
+                          ico={"/assets/pictures/user.svg"}
+                          Name={"Chet Manly"}
+                        />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <OverviewUserCard
+                          ico={"/assets/pictures/user2.svg"}
+                          Name={"Top Achievement"}
+                          Text={`Tortor dolor euismod amet, sagittis eget id dolor posuere. In est arcu
+          turpis tristique tortor mi cursus. Blandit sit eu in rhoncus libero
+          ornare quis nibh. Pulvinar imperdiet tellus quam integer vulputate
+          faucibus nisl, odio. Vel ut sed orci turpis vulputate molestie.`}
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                )}
+                {Achievement && (
+                  <Box
+                    sx={{
+                      width: "100%",
+                      minHeight: "500px",
+                      display: "flex",
+                      justifyContent: "start",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      mt: 10,
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontFamily: "Lato",
+                        fontWeight: 500,
+                        fontSize: "20px",
+                        lineHeight: "30.8px",
+                        color: "#FB8E00",
+                        textAlign: "center",
+                        textTransform: "uppercase",
+                        alignSelf: "end",
+                      }}
+                    >
+                      Total Points: 0
+                    </Typography>
+                    {Achievement_data?.map((item, index) => {
+                      return (
+                        <AchievementCard
+                          key={index}
+                          ico={item.Ico}
+                          Title={item.Title}
+                          Label={item.Label}
+                          Name={item.Name}
+                          progress={item.Progress}
+                          points={item.Points}
+                        />
+                      );
+                    })}
+                  </Box>
+                )}
+              </Box>
+            )}
           </Box>
         </Box>
 
@@ -797,5 +1022,40 @@ const Feeds_Data = [
   {
     imgURL: "/assets/pictures/feeds.svg",
     des: "Imperdiet sed maecenas arcu fusce odio",
+  },
+];
+
+const Achievement_data = [
+  {
+    Ico: "/assets/pictures/reward1.svg",
+    Title: "50-MILE-HIGH CLUB",
+    Label: "Common",
+    Name: "Successfully WooHoo ina Rocketship.",
+    Progress: "65%",
+    Points: 10,
+  },
+  {
+    Ico: "/assets/pictures/reward2.svg",
+    Title: "50-MILE-HIGH CLUB",
+    Label: "Rare",
+    Name: "Successfully WooHoo ina Rocketship.",
+    Progress: "65%",
+    Points: 25,
+  },
+  {
+    Ico: "/assets/pictures/reward3.svg",
+    Title: "50-MILE-HIGH CLUB",
+    Label: "Common",
+    Name: "Successfully WooHoo ina Rocketship.",
+    Progress: "65%",
+    Points: 75,
+  },
+  {
+    Ico: "/assets/pictures/reward4.svg",
+    Title: "50-MILE-HIGH CLUB",
+    Label: "very Rare",
+    Name: "Successfully WooHoo ina Rocketship.",
+    Progress: "65%",
+    Points: 100,
   },
 ];

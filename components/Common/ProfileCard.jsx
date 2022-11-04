@@ -53,7 +53,7 @@ function InfoCard() {
         >
           <Image
             src={"/assets/pictures/sahal.png"}
-            alt={"Logo"}
+            alt={"picture"}
             layout="fill"
             objectFit="cover"
           />
