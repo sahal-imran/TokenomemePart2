@@ -11,9 +11,23 @@ import { Divide as Hamburger } from "hamburger-react";
 import Drawer from "react-modern-drawer";
 //import styles 👇
 import "react-modern-drawer/dist/index.css";
+import Tooltip from "@mui/material/Tooltip";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+const settings = ["Profile"];
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   return (
     <>
       <Box
@@ -222,38 +236,62 @@ function Header() {
             src="/assets/pictures/Sahal.png"
             sx={{ width: 32, height: 32, mr: 1.5 }}
           />
-          <Link href={"/profile"}>
-            <Box
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
+          >
+            <Typography
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                cursor: "pointer",
+                fontFamily: "Lato",
+                fontWeight: "400",
+                fontSize: "16px",
+                lineHeight: "19.2px",
+                color: "#413C58",
+                textTransform: "unset",
+                textDecoration: "none",
+                mr: 1,
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "Lato",
-                  fontWeight: "400",
-                  fontSize: "16px",
-                  lineHeight: "19.2px",
-                  color: "#413C58",
-                  textTransform: "unset",
-                  textDecoration: "none",
-                  mr: 1,
-                }}
-              >
-                Sahal Imran
-              </Typography>
-              <Image
-                src={"/assets/pictures/ArrowDown.svg"}
-                alt={"Logo"}
-                width={10}
-                height={6}
-                objectFit="cover"
-              />
-            </Box>
-          </Link>
+              Sahal Imran
+            </Typography>
+            <Tooltip title="Menu">
+              <Box onClick={handleOpenUserMenu}>
+                <Image
+                  src={"/assets/pictures/ArrowDown.svg"}
+                  alt={"Logo"}
+                  width={14}
+                  height={10}
+                  objectFit="contain"
+                />
+              </Box>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Link href={"/profile"}>
+                  <Typography textAlign="center">Profile</Typography>
+                </Link>
+              </MenuItem>
+            </Menu>
+          </Box>
         </Box>
 
         {/* Hamburgar */}

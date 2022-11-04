@@ -1,9 +1,248 @@
-import React from 'react'
+import React, { useState, useRef } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Image from "next/image";
+import Link from "next/link";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { Button } from "@mui/material";
+import Select from "react-select";
+
+// components
+import ProfileCard from "../components/Common/ProfileCard";
+
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    border: "none",
+    height: "43.88px",
+    fontFamily: "Lato",
+    fontWeight: 400,
+    fontSize: "14.5855px",
+    lineHeight: "154%",
+    color: "rgba(0, 0, 0, 0.5)",
+    padding:"0px 0px 0px 6px",
+    borderRadius: "7.29275px",
+  }),
+};
+
+const options = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
 
 function EditProfile() {
+  const [Language, setLanguage] = React.useState("");
+
+  const handleChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
   return (
-    <div>EditProfile</div>
-  )
+    <>
+      <Box
+        sx={{
+          width: "100%",
+          position: "relative",
+          background: "white",
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            height: "281px",
+            position: "relative",
+          }}
+        >
+          <Image
+            src={"/assets/pictures/banner.svg"}
+            alt={"Logo"}
+            layout="fill"
+            objectFit="cover"
+          />
+        </Box>
+        <ProfileCard />
+
+        <Box
+          sx={{
+            width: "100%",
+            mt: 12,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            pb: 4,
+          }}
+        >
+          <Box
+            sx={{
+              width: { md: "871px", xs: "100%" },
+              borderRadius: "7px",
+              background:
+                "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
+              p: 0.2,
+            }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "5px",
+                background: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "start",
+                flexDirection: "column",
+                p: 3,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Montserrat",
+                  fontWeight: 700,
+                  fontSize: "30px",
+                  lineHeight: "36.57px",
+                  color: "#000000",
+                  textAlign: "center",
+                }}
+              >
+                Personal Information
+              </Typography>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mt: 3,
+                }}
+              >
+                {/* Username */}
+                <Box
+                  sx={{
+                    width: "50%",
+                    height: "43.88px",
+                    background: "#FFFFFF",
+                    borderRadius: "7.29275px",
+                    boxShadow: "0px 1.21546px 2.43092px rgba(0, 0, 0, 0.05)",
+                    border: "1.21546px solid rgba(0, 0, 0, 0.1)",
+                    mr: 1,
+                    overflow: "hidden",
+                  }}
+                >
+                  <input
+                    type="text"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      boxShadow: "none",
+                      fontFamily: "Lato",
+                      fontWeight: 400,
+                      fontSize: "14.5855px",
+                      lineHeight: "154%",
+                      color: "rgba(0, 0, 0, 0.5)",
+                      padding: "0px 15px",
+                    }}
+                    placeholder="Username"
+                  />
+                </Box>
+                {/* Email */}
+                <Box
+                  sx={{
+                    width: "50%",
+                    height: "43.88px",
+                    background: "#FFFFFF",
+                    borderRadius: "7.29275px",
+                    boxShadow: "0px 1.21546px 2.43092px rgba(0, 0, 0, 0.05)",
+                    border: "1.21546px solid rgba(0, 0, 0, 0.1)",
+                    ml: 1,
+                    overflow: "hidden",
+                  }}
+                >
+                  <input
+                    type="text"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      boxShadow: "none",
+                      fontFamily: "Lato",
+                      fontWeight: 400,
+                      fontSize: "14.5855px",
+                      lineHeight: "154%",
+                      color: "rgba(0, 0, 0, 0.5)",
+                      padding: "0px 15px",
+                    }}
+                    placeholder="Email Address"
+                  />
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mt: 2,
+                }}
+              >
+                {/* password */}
+                <Box
+                  sx={{
+                    width: "50%",
+                    height: "43.88px",
+                    background: "#FFFFFF",
+                    borderRadius: "7.29275px",
+                    boxShadow: "0px 1.21546px 2.43092px rgba(0, 0, 0, 0.05)",
+                    border: "1.21546px solid rgba(0, 0, 0, 0.1)",
+                    mr: 1,
+                    overflow: "hidden",
+                  }}
+                >
+                  <input
+                    type="password"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      boxShadow: "none",
+                      fontFamily: "Lato",
+                      fontWeight: 400,
+                      fontSize: "14.5855px",
+                      lineHeight: "154%",
+                      color: "rgba(0, 0, 0, 0.5)",
+                      padding: "0px 15px",
+                    }}
+                    placeholder="Password"
+                  />
+                </Box>
+                {/* language */}
+                <Box
+                  sx={{
+                    width: "50%",
+                    height: "43.88px",
+                    ml: 1,
+                    borderRadius: "7.29275px",
+                    boxShadow: "0px 1.21546px 2.43092px rgba(0, 0, 0, 0.05)",
+                    border: "1.21546px solid rgba(0, 0, 0, 0.1)",
+                    // overflow: "hidden",
+                  }}
+                >
+                  <Select placeholder="Language" styles={customStyles} options={options} />
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
 }
 
-export default EditProfile
+export default EditProfile;

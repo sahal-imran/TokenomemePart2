@@ -336,6 +336,7 @@ function Home() {
             position: "absolute",
             left: "-200px",
             top: "15%",
+            display: { md: "block", xs: "none" },
           }}
         >
           <Image
@@ -351,6 +352,7 @@ function Home() {
             height: "894.85px",
             position: "absolute",
             right: 0,
+            display: { md: "block", xs: "none" },
             top: "50%",
           }}
         >

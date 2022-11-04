@@ -58,23 +58,25 @@ function InfoCard() {
             objectFit="cover"
           />
         </Box>
-        <IconButton
-          sx={{
-            position: "absolute",
-            bottom: 0,
-            right: "30px",
-            background: "white",
-            "&:hover": { background: "white" },
-          }}
-        >
-          <Image
-            src={"/assets/pictures/edit.svg"}
-            alt={"edit"}
-            width={34.83}
-            height={34.83}
-            objectFit="contain"
-          />
-        </IconButton>
+        <Link href={"/editprofile"}>
+          <IconButton
+            sx={{
+              position: "absolute",
+              bottom: 0,
+              right: "30px",
+              background: "white",
+              "&:hover": { background: "white" },
+            }}
+          >
+            <Image
+              src={"/assets/pictures/edit.svg"}
+              alt={"edit"}
+              width={34.83}
+              height={34.83}
+              objectFit="contain"
+            />
+          </IconButton>
+        </Link>
       </Box>
       {/* Content */}
       <Box
