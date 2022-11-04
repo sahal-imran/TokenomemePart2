@@ -10,6 +10,7 @@ import Select from "react-select";
 
 // components
 import ProfileCard from "../components/Common/ProfileCard";
+import SocialMediaButton from "../components/Profile/SocialMediaButton";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -93,10 +94,10 @@ function EditProfile() {
                 background: "white",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: {md:"start",xs:"center"},
+                alignItems: { md: "start", xs: "center" },
                 flexDirection: "column",
-                px: {md:3,xs:1},
-                py:3
+                px: { md: 3, xs: 1 },
+                py: 3,
               }}
             >
               <Typography
@@ -282,7 +283,7 @@ function EditProfile() {
                 sx={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: {md:"end",xs:"end"},
+                  justifyContent: { md: "end", xs: "end" },
                   alignItems: "center",
                   mt: 8,
                 }}
@@ -301,7 +302,7 @@ function EditProfile() {
                     background:
                       "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
                     borderRadius: "11.3968px",
-                    textTransform:"capitalize"
+                    textTransform: "capitalize",
                   }}
                 >
                   Save
@@ -318,15 +319,89 @@ function EditProfile() {
                     height: "49px",
                     boxShadow: "none",
                     borderRadius: "11.3968px",
-                    ml:2,
-                    textTransform:"capitalize",
-                    border:"1.4246px solid rgba(0, 0, 0, 0.1)",
-                    "&:hover":{border:"1.4246px solid rgba(0, 0, 0, 0.1)"}
+                    ml: 2,
+                    textTransform: "capitalize",
+                    border: "1.4246px solid rgba(0, 0, 0, 0.1)",
+                    "&:hover": { border: "1.4246px solid rgba(0, 0, 0, 0.1)" },
                   }}
                 >
                   Cancel
                 </Button>
               </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: { md: "871px", xs: "95%" },
+              borderRadius: "7px",
+              background:
+                "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
+              p: 0.2,
+              mt: 6,
+            }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "5px",
+                background: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                px: { md: 3, xs: 1 },
+                py: 4,
+              }}
+            >
+              {/* Reddit */}
+              <SocialMediaButton
+                Title1={"Connect With Reddit"}
+                Title2={"Connect to Youmeme using your Reddit account"}
+                Ico={"/assets/pictures/reddit.svg"}
+                Text={"Connect reddit"}
+                SocialURL={""}
+              />
+              {/* Facebook */}
+              <Box sx={{ width: "100%", mt: 4 }}>
+                <SocialMediaButton
+                  Title1={"Connect With Facebook"}
+                  Title2={"Connect to Youmeme using your Facebook account"}
+                  Ico={"/assets/pictures/facebook.svg"}
+                  Text={"Connect Facebook"}
+                  SocialURL={""}
+                />
+              </Box>
+              {/* Twitter */}
+              <Box sx={{ width: "100%", mt: 4 }}>
+                <SocialMediaButton
+                  Title1={"Connect With Twitter"}
+                  Title2={"Connect to Youmeme using your Twitter account"}
+                  Ico={"/assets/pictures/twitter.svg"}
+                  Text={"Connect Twitter"}
+                  SocialURL={""}
+                />
+              </Box>
+              <Button
+                variant="contained"
+                sx={{
+                  fontFamily: "Montserrat",
+                  fontWeight: 700,
+                  fontSize: "20px",
+                  lineHeight: "154%",
+                  color: "white",
+                  width: "186px",
+                  height: "59px",
+                  boxShadow: "none",
+                  background:
+                    "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
+                  borderRadius: "11.3968px",
+                  textTransform: "capitalize",
+                  mt:6,
+                }}
+              >
+                Update
+              </Button>
             </Box>
           </Box>
         </Box>
