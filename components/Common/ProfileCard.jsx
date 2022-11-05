@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
+import Avatar from "@mui/material/Avatar";
 
 function InfoCard() {
   return (
@@ -39,26 +40,11 @@ function InfoCard() {
           p: 1,
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            height: "100%",
-            background: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: "50%",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            src={"/assets/pictures/sahal.jpg"}
-            alt={"picture"}
-            layout="fill"
-            objectFit="cover"
-          />
-        </Box>
+        <Avatar
+          alt="Sahal Imran"
+          src="/assets/pictures/Sahal.jpg"
+          sx={{ width: "100%", height: "100%" }}
+        />
         <Link href={"/editprofile"}>
           <IconButton
             sx={{

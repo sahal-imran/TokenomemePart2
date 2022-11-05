@@ -335,7 +335,7 @@ function Header() {
             >
               <Avatar
                 alt="Sahal Imran"
-                src="/assets/pictures/Sahal.png"
+                src="/assets/pictures/Sahal.jpg"
                 sx={{ width: 50, height: 50 }}
               />
               <Typography
