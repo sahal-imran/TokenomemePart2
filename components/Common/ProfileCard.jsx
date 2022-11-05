@@ -49,10 +49,11 @@ function InfoCard() {
             alignItems: "center",
             borderRadius: "50%",
             position: "relative",
+            overflow: "hidden",
           }}
         >
           <Image
-            src={"/assets/pictures/sahal.png"}
+            src={"/assets/pictures/sahal.jpg"}
             alt={"picture"}
             layout="fill"
             objectFit="cover"

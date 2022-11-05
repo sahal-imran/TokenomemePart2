@@ -19,18 +19,20 @@ function SearchBar(props, ref) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        p: 0.2,
       }}
     >
       <Box
         sx={{
-          width: "calc(100% - 1px)",
-          height: "calc(100% - 2px)",
+          width: "100%",
+          height: "100%",
           borderRadius: "58px",
           background: "white",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           px: 2,
+          mt: 0.05,
         }}
       >
         <Box

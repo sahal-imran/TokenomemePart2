@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import Select from "react-select";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 // components
 import ProfileCard from "../components/Common/ProfileCard";
@@ -35,10 +37,16 @@ const options = [
 
 function EditProfile() {
   const [Language, setLanguage] = React.useState("");
-
   const handleChange = (event) => {
     setLanguage(event.target.value);
   };
+
+  const Username_ref = useRef(null);
+  const Email_ref = useRef(null);
+  const Password_ref = useRef(null);
+  const Message_ref = useRef(null);
+
+  const [TogglePassword, SetTogglePassword] = useState("password");
 
   return (
     <>
@@ -55,6 +63,7 @@ function EditProfile() {
             width: "100%",
             height: "281px",
             position: "relative",
+            zIndex: 10,
           }}
         >
           <Image
@@ -75,6 +84,8 @@ function EditProfile() {
             alignItems: "center",
             flexDirection: "column",
             pb: 4,
+            position: "relative",
+            zIndex: 10,
           }}
         >
           <Box
@@ -135,6 +146,7 @@ function EditProfile() {
                   }}
                 >
                   <input
+                    ref={Username_ref}
                     type="text"
                     style={{
                       width: "100%",
@@ -166,6 +178,7 @@ function EditProfile() {
                   }}
                 >
                   <input
+                    ref={Email_ref}
                     type="text"
                     style={{
                       width: "100%",
@@ -204,12 +217,16 @@ function EditProfile() {
                     border: "1.21546px solid rgba(0, 0, 0, 0.1)",
                     mr: 1,
                     overflow: "hidden",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <input
-                    type="password"
+                    ref={Password_ref}
+                    type={TogglePassword}
                     style={{
-                      width: "100%",
+                      width: "90%",
                       height: "100%",
                       border: "none",
                       outline: "none",
@@ -223,6 +240,26 @@ function EditProfile() {
                     }}
                     placeholder="Password"
                   />
+                  <Box
+                    sx={{
+                      width: "10%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {TogglePassword === "password" ? (
+                      <RemoveRedEyeIcon
+                        onClick={() => SetTogglePassword("text")}
+                        sx={{ color: "#808080", cursor: "pointer" }}
+                      />
+                    ) : (
+                      <VisibilityOffIcon
+                        onClick={() => SetTogglePassword("password")}
+                        sx={{ color: "#808080", cursor: "pointer" }}
+                      />
+                    )}
+                  </Box>
                 </Box>
                 {/* language */}
                 <Box
@@ -254,6 +291,7 @@ function EditProfile() {
                 }}
               >
                 <textarea
+                  ref={Message_ref}
                   name="message"
                   id="message"
                   cols="30"
@@ -397,13 +435,48 @@ function EditProfile() {
                     "linear-gradient(236.69deg, #FB8E00 6.11%, #823AFF 97.1%)",
                   borderRadius: "11.3968px",
                   textTransform: "capitalize",
-                  mt:6,
+                  mt: 6,
                 }}
               >
                 Update
               </Button>
             </Box>
           </Box>
+        </Box>
+
+        <Box
+          sx={{
+            width: "550px",
+            height: "550px",
+            position: "absolute",
+            left: 0,
+            top: "10%",
+            display: { md: "block", xs: "none" },
+          }}
+        >
+          <Image
+            src={"/assets/pictures/9.svg"}
+            alt={"9"}
+            layout="fill"
+            objectFit="cotain"
+          />
+        </Box>
+        <Box
+          sx={{
+            width: "500px",
+            height: "500px",
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            display: { md: "block", xs: "none" },
+          }}
+        >
+          <Image
+            src={"/assets/pictures/10.svg"}
+            alt={"10"}
+            layout="fill"
+            objectFit="cotain"
+          />
         </Box>
       </Box>
     </>

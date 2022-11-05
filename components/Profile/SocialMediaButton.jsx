@@ -14,9 +14,9 @@ function SocialMediaButton({ Title1, Title2, Ico, Text, SocialURL }) {
       sx={{
         width: "100%",
         display: "flex",
-        justifyContent: {md:"space-between",xs:"center"},
+        justifyContent: { md: "space-between", xs: "center" },
         alignItems: "center",
-        flexDirection:{md:"row",xs:"column"},
+        flexDirection: { md: "row", xs: "column" },
         borderBottom: "2px solid rgba(0,0,0,.2)",
         pb: 2,
       }}
@@ -25,7 +25,7 @@ function SocialMediaButton({ Title1, Title2, Ico, Text, SocialURL }) {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignItems: {md:"start",xs:"center"},
+          alignItems: { md: "start", xs: "center" },
           flexDirection: "column",
         }}
       >
@@ -36,7 +36,7 @@ function SocialMediaButton({ Title1, Title2, Ico, Text, SocialURL }) {
             fontSize: "25px",
             lineHeight: "39.12px",
             color: "#000000",
-            textAlign: {md:"start",xs:"center"},
+            textAlign: { md: "start", xs: "center" },
           }}
         >
           {Title1}
@@ -48,7 +48,7 @@ function SocialMediaButton({ Title1, Title2, Ico, Text, SocialURL }) {
             fontSize: "18px",
             lineHeight: "156.5%",
             color: "gba(15, 15, 14, 0.6)",
-            textAlign: {md:"start",xs:"center"},
+            textAlign: { md: "start", xs: "center" },
           }}
         >
           {Title2}
@@ -77,7 +77,7 @@ function SocialMediaButton({ Title1, Title2, Ico, Text, SocialURL }) {
           "&:hover": {
             background: "#A5A5A5",
           },
-          mt:{md:0,xs:3}
+          mt: { md: 0, xs: 3 },
         }}
       >
         <Box

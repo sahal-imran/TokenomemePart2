@@ -233,7 +233,7 @@ function Header() {
           {/* Avatar */}
           <Avatar
             alt="Sahal Imran"
-            src="/assets/pictures/Sahal.png"
+            src="/assets/pictures/Sahal.jpg"
             sx={{ width: 32, height: 32, mr: 1.5 }}
           />
           <Box
@@ -324,33 +324,36 @@ function Header() {
             width: "100%",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Avatar
-              alt="Sahal Imran"
-              src="/assets/pictures/Sahal.png"
-              sx={{ width: 50, height: 50 }}
-            />
-            <Typography
+          <Link href={"/profile"}>
+            <Box
+              onClick={() => setOpen(false)}
               sx={{
-                fontFamily: "Lato",
-                fontWeight: "600",
-                fontSize: "16px",
-                lineHeight: "19.2px",
-                color: "white",
-                textTransform: "unset",
-                textDecoration: "none",
-                ml: 1,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              Sahal Imran
-            </Typography>
-          </Box>
+              <Avatar
+                alt="Sahal Imran"
+                src="/assets/pictures/Sahal.png"
+                sx={{ width: 50, height: 50 }}
+              />
+              <Typography
+                sx={{
+                  fontFamily: "Lato",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  lineHeight: "19.2px",
+                  color: "white",
+                  textTransform: "unset",
+                  textDecoration: "none",
+                  ml: 1,
+                }}
+              >
+                Sahal Imran
+              </Typography>
+            </Box>
+          </Link>
           <Hamburger
             color="white"
             rounded
@@ -362,6 +365,7 @@ function Header() {
 
         <Link href={""}>
           <Anchorlink
+            onClick={() => setOpen(false)}
             sx={{
               fontFamily: "Lato",
               fontWeight: "400",
@@ -379,6 +383,7 @@ function Header() {
         </Link>
         <Link href={""}>
           <Anchorlink
+            onClick={() => setOpen(false)}
             sx={{
               fontFamily: "Lato",
               fontWeight: "400",
@@ -396,6 +401,7 @@ function Header() {
         </Link>
         <Link href={""}>
           <Anchorlink
+            onClick={() => setOpen(false)}
             sx={{
               fontFamily: "Lato",
               fontWeight: "400",
@@ -411,8 +417,9 @@ function Header() {
             Just-to-Laugh
           </Anchorlink>
         </Link>
-        <Link href={""}>
+        <Link href={"/marketplace"}>
           <Anchorlink
+            onClick={() => setOpen(false)}
             sx={{
               fontFamily: "Lato",
               fontWeight: "400",
@@ -430,6 +437,7 @@ function Header() {
         </Link>
         <Link href={""}>
           <Anchorlink
+            onClick={() => setOpen(false)}
             sx={{
               fontFamily: "Lato",
               fontWeight: "400",
