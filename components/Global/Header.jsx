@@ -69,7 +69,7 @@ function Header() {
           <Button
             variant="contained"
             sx={{
-              width: "151px",
+              width: "100px",
               height: "38px",
               background:
                 "linear-gradient(116.12deg, #F46531 8.93%, #F46E31 18.56%, #F48631 34.22%, #F4AD31 53.86%, #F4B331 56.44%, #F4B331 103.58%, #F4E795 137.56%), #D9D9D9",
@@ -85,7 +85,7 @@ function Header() {
               "&:hover": {},
             }}
           >
-            Create a Post
+            Create
           </Button>
           <Link href={""}>
             <Anchorlink

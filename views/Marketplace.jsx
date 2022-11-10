@@ -146,7 +146,7 @@ function Marketplace() {
             mx: "auto",
             position: "relative",
             zIndex: 10,
-            px: { md: 0, xs: 2 },
+            px: { md: 2, xs: 2 },
             pb: 4,
           }}
         >
@@ -157,7 +157,7 @@ function Marketplace() {
               xs={0}
               md={3}
               sx={{
-                display: { md: "flex", xs: "none" },
+                display: { lg: "flex", xs: "none" },
                 justifyContent: "start",
                 alignItems: "start",
                 flexDirection: "column",
@@ -669,7 +669,7 @@ function Marketplace() {
             <Grid
               item
               xs={12}
-              md={9}
+              lg={9}
               sx={{
                 width: "100%",
                 display: "flex",
@@ -699,7 +699,7 @@ function Marketplace() {
                   {/* Search bar */}
                   <Box
                     sx={{
-                      width: { md: "550px", xs: "50%" },
+                      width: { md: "300px", xs: "50%" },
                       height: "57px",
                       borderRadius: "58px",
                       border: "1px solid rgba(0,0,0,0.6)",
@@ -931,7 +931,7 @@ function Marketplace() {
                 <Box sx={{ flexGrow: 1, width: "100%", mt: 3 }}>
                   <Grid
                     container
-                    columnSpacing={{ md: 2 }}
+                    columnSpacing={{ sm: 2 }}
                     rowSpacing={{ md: 2, xs: 5 }}
                   >
                     {NFTs?.map((item, index) => {

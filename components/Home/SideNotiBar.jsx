@@ -44,8 +44,8 @@ function SideNotiBar() {
       <SuggestionBanner />
 
       {/* Notification card */}
-      <NotiCard Title={"Home"} IsImage={true} mt={3} />
-      <NotiCard Title={"Suggestion"} IsImage={false} mt={3} />
+      <NotiCard Title={"Home"} IsSlider={true} mt={3} />
+      <NotiCard Title={"Suggestion"} IsSlider={false} mt={3} />
     </Box>
   );
 }

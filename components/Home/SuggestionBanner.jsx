@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
 
 function SuggestionBanner() {
   return (
@@ -29,23 +30,73 @@ function SuggestionBanner() {
       >
         Top MemeLord
       </Typography>
+
       <Typography
         sx={{
           fontFamily: "Lato",
           fontWeight: 500,
           fontSize: "16px",
-          lineHeight: "24.64px",
+          lineHeight: "22px",
           color: "white",
           textTransform: "unset",
           mt: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
+        <Avatar
+          alt="Sahal Imran"
+          src="/assets/pictures/Sahal.jpg"
+          sx={{ width: 22, height: 22, mr: 1 }}
+        />
         @bestmemelord
-        <br />
+      </Typography>
+
+      <Typography
+        sx={{
+          fontFamily: "Lato",
+          fontWeight: 500,
+          fontSize: "16px",
+          lineHeight: "22px",
+          color: "white",
+          textTransform: "unset",
+          mt: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Avatar
+          alt="Sahal Imran"
+          src="/assets/pictures/Sahal.jpg"
+          sx={{ width: 22, height: 22, mr: 1 }}
+        />
         @memeking
-        <br />
+      </Typography>
+
+      <Typography
+        sx={{
+          fontFamily: "Lato",
+          fontWeight: 500,
+          fontSize: "16px",
+          lineHeight: "22px",
+          color: "white",
+          textTransform: "unset",
+          mt: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Avatar
+          alt="Sahal Imran"
+          src="/assets/pictures/Sahal.jpg"
+          sx={{ width: 22, height: 22, mr: 1 }}
+        />
         @ultimatememereport
       </Typography>
+
       <Typography
         sx={{
           fontFamily: "Montserrat",
@@ -64,12 +115,20 @@ function SuggestionBanner() {
           fontFamily: "Lato",
           fontWeight: 500,
           fontSize: "16px",
-          lineHeight: "24.64px",
+          lineHeight: "22px",
           color: "white",
           textTransform: "unset",
           mt: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
+        <Avatar
+          alt="Sahal Imran"
+          src="/assets/pictures/Sahal.jpg"
+          sx={{ width: 22, height: 22, mr: 1 }}
+        />
         @coolcollectors3
       </Typography>
     </Box>

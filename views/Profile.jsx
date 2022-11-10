@@ -140,7 +140,7 @@ function Profile() {
               p: { md: 2, xs: 1 },
               background: "white",
               display: "flex",
-              justifyContent: "start",
+              justifyContent: { md: "start", xs: "center" },
               alignItems: "center",
               flexDirection: "column",
               borderRadius: "2.72861px",
@@ -158,9 +158,10 @@ function Profile() {
                   height: "4px",
                 },
                 width: "100%",
-                borderBottom: "2px solid rgba(0, 0, 0, 0.1)",
+                borderBottom: { md: "2px solid rgba(0, 0, 0, 0.1)" },
                 position: "relative",
                 zIndex: 10,
+                display: { md: "flex", xs: "none" },
               }}
               value={SwtichPanel}
               onChange={handleSwtichPanelChange}
@@ -170,7 +171,7 @@ function Profile() {
                   fontFamily: "Lato",
                   fontWeight: 400,
                   fontStyle: "normal",
-                  fontSize: "26px",
+                  fontSize: { md: "26px", xs: "18px" },
                   color: "rgba(0, 0, 0, 0.6)",
                   px: 6,
                   textTransform: "capitalize",
@@ -183,7 +184,53 @@ function Profile() {
                   fontFamily: "Lato",
                   fontWeight: 400,
                   fontStyle: "normal",
-                  fontSize: "26px",
+                  fontSize: { md: "26px", xs: "18px" },
+                  color: "rgba(0, 0, 0, 0.6)",
+                  px: 6,
+                  textTransform: "capitalize",
+                }}
+                label="Rewards"
+                className={SwtichPanel === 1 ? "GradText2" : ""}
+              />
+            </Tabs>
+            <Tabs
+              sx={{
+                "& .Mui-selected": {
+                  fontWeight: 700,
+                },
+                "& .css-1aquho2-MuiTabs-indicator ": {
+                  backgroundColor: "#FB8E00",
+                  height: "4px",
+                },
+                width: "100%",
+                borderBottom: { md: "2px solid rgba(0, 0, 0, 0.1)" },
+                position: "relative",
+                zIndex: 10,
+                display: { md: "none", xs: "flex" },
+              }}
+              value={SwtichPanel}
+              onChange={handleSwtichPanelChange}
+              centered
+            >
+              <Tab
+                sx={{
+                  fontFamily: "Lato",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: { md: "26px", xs: "18px" },
+                  color: "rgba(0, 0, 0, 0.6)",
+                  px: 6,
+                  textTransform: "capitalize",
+                }}
+                label="Post"
+                className={SwtichPanel === 0 ? "GradText2" : ""}
+              />
+              <Tab
+                sx={{
+                  fontFamily: "Lato",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: { md: "26px", xs: "18px" },
                   color: "rgba(0, 0, 0, 0.6)",
                   px: 6,
                   textTransform: "capitalize",

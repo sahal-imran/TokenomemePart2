@@ -19,6 +19,7 @@ function InfoCard() {
         mt: "-120px",
         position: "relative",
         zIndex: 10,
+        px:2
       }}
     >
       {/* Avatar */}
